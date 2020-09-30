@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', 'PagesController@about');
-
-Route::get('/services', 'PagesController@services');
-
-Route::get('/users/{id}/{name}', function ($id, $name) {
-    return 'This is user ' . $name . ' with id: ' . $id;
-});
-
 Route::resource('posts', 'PostsController');
+Route::resource('categories', 'CategoriesController');
+Route::resource('products', 'ProductsController');
+
+Route::get('/cart', 'CartController@index');
+Route::post('/cart/add/{productId}', 'CartController@addToCart');
+Route::post('/cart/update/{productId}', 'CartController@updateItemQty');
+Route::get('/cart/empty', 'CartController@emptyCart');
+Route::get('/cart/remove/{productId}', 'CartController@removeFromCart');
+
+Auth::routes();
+
+Route::get('/orders', 'OrdersController@index');
+Route::get('/orders/create', 'OrdersController@create');
+Route::get('/orders/store', 'OrdersController@store');
