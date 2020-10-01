@@ -16,7 +16,7 @@
                     <table class="table table-striped">
                         <tr>
                             <th>Order ID</th>
-                            <th>Product IDs</th>
+                            <th>Products</th>
                             <th>User ID</th>
                         </tr>
                         @foreach($orders as $order)
@@ -24,7 +24,7 @@
                                 <th>{{$order->id}}</th>
                                 <th>
                                     @foreach(unserialize($order->products_data) as $product)
-                                        <p>{{$product['id']}} ({{$product['amount']}}x)</p>
+                                        <p>{{$product->name}} ({{$product->itemQty}}x)</p>
                                     @endforeach
                                 </th>
                                 <th>{{$order->user_id}}</th>

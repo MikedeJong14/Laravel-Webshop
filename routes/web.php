@@ -19,10 +19,10 @@ Route::resource('categories', 'CategoriesController');
 Route::resource('products', 'ProductsController');
 
 Route::get('/cart', 'CartController@index');
-Route::post('/cart/add/{productId}', 'CartController@addToCart');
-Route::post('/cart/update/{productId}', 'CartController@updateItemQty');
-Route::get('/cart/empty', 'CartController@emptyCart');
-Route::get('/cart/remove/{productId}', 'CartController@removeFromCart');
+Route::post('/cart/store/{productId}', 'CartController@store');
+Route::post('/cart/update/{productId}', 'CartController@update');
+Route::get('/cart/destroy/{productId}', 'CartController@destroy');
+Route::get('/cart/empty', 'CartController@empty');
 
 Auth::routes();
 

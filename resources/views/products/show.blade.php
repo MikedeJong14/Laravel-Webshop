@@ -8,7 +8,7 @@
         <hr>
         <h4>€{{$product->price}},-</h4>
     </div>
-    {!! Form::open(['action' => ['CartController@addToCart', $product->id], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['CartController@store', $product->id], 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('amount', 'Amount')}}
             {{Form::number('amount', 1, ['min' => "1", 'max' => "100"])}}
